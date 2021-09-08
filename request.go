@@ -24,7 +24,7 @@ type mRequest Request
 // MarshalJSON returns the JSON encoding of a Request.
 // If the Request only contains an URL with the Get HTTP method, it is returned as a string.
 func (r Request) MarshalJSON() ([]byte, error) {
-	if r.Auth == nil && r.Proxy == nil && r.Certificate == nil && r.Description == nil && r.Header == nil && r.Body == nil && r.Method == Get {
+	if r.Auth == nil && r.Proxy == nil && r.Certificate == nil && r.Description == nil && r.Header == nil && r.Body == nil {
 		return []byte(fmt.Sprintf("\"%s\"", r.URL)), nil
 	}
 
