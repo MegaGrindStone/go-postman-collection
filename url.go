@@ -38,7 +38,7 @@ func (u *URL) setVersion(v version) {
 func (u URL) MarshalJSON() ([]byte, error) {
 
 	// Postman Collection are always objects in v2.1.0 but can be strings in v2.0.0
-	if u.version == V200 && u.Variables == nil {
+	if (u.version == V200 && u.Variables == nil) || u.Raw != "" {
 		return []byte(fmt.Sprintf("\"%s\"", u.Raw)), nil
 	}
 
